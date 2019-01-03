@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel='stylesheet' href='../static/style.css'>
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src='../static/client.js'></script>
+    <title>SigNet</title>
+</head>
+  <body>
+        <div class="wrapper">
+            <img id="logo-main" src="../static/logo.png" width="200" alt="SigNet">
+            <nav class="navbar navbar-expand navbar-light bg-light">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home&nbsp;&nbsp;</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link navi" href="#">&nbsp;&nbsp;About <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        
+            <div class="accordion col-sm-12 col-md-8 mx-auto acc" id="accordionExample">
+                <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Motivation
+                    </button>
+                    </h2>
+                </div>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body text-justify">
+                        Recognition of traffic signs is a challenging real-world problem of high industrial 
+                        relevance. As autonomous vehicles, such as Google’s ‘self-driving car,’ become more 
+                        prominent, the ability to detect and recognize informational road signs is
+                        of elevated importance. 
+                        Road sign detection and classification faces the same challenges as many other detection
+                        tasks, namely that of shadows and outdoor lighting conditions obscuring the signs.
+                        A useful detector must, therefore, be able to cope with rotation, different 
+                        lighting conditions, perspective changes, occlusion and all kinds of weather conditions.
+                        <br><br>
+                        <span id="net">SigNet</span> is a convolutional neural network (resnet34 architecture) that has been 
+                        trained to recognize traffic signs in 43 different categories.
+                        <!-- provides a complete machine learning pipeline for the detection 
+                        and classification of traffic signs. The detector pinpoints the location of a traffic sign in 
+                        an image. The location of the sign is passed on to the classifier for recognition. -->
+                    </div>
+                </div>
+                </div>
+                <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Traffic Sign Recognition
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body text-justify">
+                        For the recognition of traffic signs, the dataset used is from the
+                        <a href="http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset" target="_blank">
+                            German Traffic Sign Recognition Benchmark</a><br>
+                        The training set contains 31368 images in 43 classes. A test set which has 12630 
+                        images is also provided.
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <img src="../static/signs/1.png" class="img-fluid" alt="Responsive image">
+                                <img src="../static/signs/2.png" class="img-fluid" alt="Responsive image">
+                                <img src="../static/signs/3.png" class="img-fluid" alt="Responsive image">
+                            </div> 
+                            <div class="row justify-content-center">
+                                <img src="../static/signs/4.jpg" class="img-fluid" alt="Responsive image">
+                                <img src="../static/signs/5.png" class="img-fluid" alt="Responsive image">
+                                <img src="../static/signs/6.jpg" class="img-fluid" alt="Responsive image">
+                            </div> 
+                            <div class="row justify-content-center">
+                                <img src="../static/signs/7.png" class="img-fluid" alt="Responsive image">
+                                <img src="../static/signs/8.png" class="img-fluid" alt="Responsive image">
+                                <img src="../static/signs/9.jpg" class="img-fluid" alt="Responsive image">
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Project Information
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <span id="net">SigNet</span> is built with:<br>
+                        <ul class="">
+                            <li class="">Python 3.6+</li>
+                            <li class=""><a href="https://jupyter.org/" target="_blank">JupyterLab</a></li>
+                            <li class=""><a href="http://docs.fast.ai/" target="_blank">Fastai</a>:
+                                An awesome deep learning library that is built on top of PyTorch</li>
+                            <li class=""><a href="https://www.starlette.io/" target="_blank">Starlette</a>: 
+                                A lightweight ASGI framework/toolkit, which is ideal for building 
+                                high performance asyncio services.
+                            </li>
+                        </ul>
+                        <p>
+                            The code for the project can be found on 
+                            <a href="https://github.com/asiedubrempong/SignNet" target="_blank">github</a>
+                        </p>
+                       
+                        <p>
+                            <!-- <strong>Note:</strong> Only the classifier has been built as at now, although plans are in place 
+                            to build and integrate the detector. <br> -->
+                            I am constantly looking out for opportunities to learn and build cool stuff; feel free to reach out
+                            to me on:
+                            
+                            <a href="https://twitter.com/asiedubrempong" class="fa fa-twitter"></a>
+                        </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer mt-auto py-3 d-flex align-items-start">
+            <div class="container ">
+                <span class="text-muted">
+                        © 2018 Copyright:
+                        <a href="https://www.linkedin.com/in/asiedu-brempong" target="_blank">Kofi Asiedu Brempong</a>&nbsp;&nbsp;
+                        <a href="https://twitter.com/asiedubrempong" class="fa fa-twitter"></a> &nbsp;&nbsp;
+                        <a href="https://www.linkedin.com/in/asiedu-brempong" class="fa fa-linkedin"></a>
+                </span>
+            </div>
+        </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
