@@ -8,7 +8,7 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-model_file_url = 'https://drive.google.com/uc?export=download&id=1WYa4JxG5UayTuHBJWRzJleOjr1ecIUn6'
+model_file_url = 'https://drive.google.com/uc?export=download&id=1NE7n942tc_h22GQLkracqIHLzIYuSZ9I'
 model_file_name = 'model'
 
 classes = ['Ahead only', 'Beware of ice/snow', 'Bicycles crossing', 'Bumpy road', 'Children crossing', 'Dangerous curve to the left', 
