@@ -24,8 +24,8 @@ function analyze() {
     xhr.onload = function(e) {
         if (this.readyState === 4) {
             var response = JSON.parse(e.target.responseText);
-            if(response['result'] == 'wrong') {
-                el('result-label').innerHTML = `Seems like the image provided is not a traffic sign`;
+            if(response['result'].includes('wrong')) {
+                el('result-label').innerHTML = `Seems like the image provided is not a traffic sign: ${response['result']}`;
             } else {
                 el('result-label').innerHTML = `The image has been identified as a: ${response['result']} sign`;
             }

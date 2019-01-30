@@ -66,9 +66,10 @@ async def analyze(request):
     top_probs, top_classes = prediction_info[2].topk(5)
     # if probability is below 0.5 then it's not an image
     if top_probs[0].item() < 0.50:
-        return JSONResponse({'result': 'wrong'})
+        a = 'wrong ' + str(top_probs[0].item())
+        return JSONResponse({'result': a})
     else:
-        return JSONResponse({'result': str(prediction)})
+        return JSONResponse({'result': str(prediction) + '  ' + str(top_probs[0].item())})
 
 @app.route('/about')
 def about_page(request):
