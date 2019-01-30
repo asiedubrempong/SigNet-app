@@ -88,6 +88,10 @@ button:focus {outline:0;}
     margin-top: 2em!important;
 }
 
+.rem {
+    padding: 0px!important;
+}
+
 .acc {
     padding-top: 2em;
 }
