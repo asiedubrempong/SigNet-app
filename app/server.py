@@ -3,13 +3,13 @@ from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn, aiohttp, asyncio
-from io import BytesIO 
+from io import BytesIO
 
 from fastai import *
 from fastai.vision import *
 
-model_file_url = 'https://drive.google.com/uc?export=download&id=1N42lHKhO8IWr2UPrtyzcPOfd6t9eMSqx'
-model_file_name = 'model'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1hkSFPRFnw5hmkAnUnrDCOU8s0Wdc6I-T'
+export_file_name = 'export.pkl'
 
 classes = ['Ahead only', 'Beware of ice/snow', 'Bicycles crossing', 'Bumpy road', 'Children crossing', 'Dangerous curve to the left', 
 	'Dangerous curve to the right', 'Double curve', 'End of all speed and passing limits', 'End of no passing', 
@@ -34,12 +34,17 @@ async def download_file(url, dest):
             with open(dest, 'wb') as f: f.write(data)
 
 async def setup_learner():
-    await download_file(model_file_url, path/'models'/f'{model_file_name}.pth')
-    data_bunch = ImageDataBunch.single_from_classes(path, classes,
-        tfms=get_transforms(), size=224).normalize(imagenet_stats)
-    learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
-    learn.load(model_file_name)
-    return learn
+    await download_file(export_file_url, path/export_file_name)
+    try:
+        learn = load_learner(path, export_file_name)
+        return learn
+    except RuntimeError as e:
+        if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
+            print(e)
+            message = "\n\nThis model was trained with an old version of fastai and will not work in a CPU environment.\n\nPlease update the fastai library in your training environment and export your model again.\n\nSee instructions for 'Returning to work' at https://course.fast.ai."
+            raise RuntimeError(message)
+        else:
+            raise
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
@@ -59,11 +64,5 @@ async def analyze(request):
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
 
-@app.route('/about')
-def about_page(request):
-    html = path/'view'/'about.html'
-    return HTMLResponse(html.open().read())
-
 if __name__ == '__main__':
-    if 'serve' in sys.argv: uvicorn.run(app, host='0.0.0.0', port=5042)
-
+    if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
