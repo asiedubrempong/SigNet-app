@@ -66,7 +66,7 @@ async def analyze(request):
     top_probs, top_classes = prediction_info[2].topk(5)
     # if probability is below 0.5 then it's not an image
     if top_probs[0].item() < 0.85:
-        return JSONResponse({'result': 'wrong'})
+        return JSONResponse({'result': 'Seems like the image provided is not a traffic sign'})
     else:
         return JSONResponse({'result': str(prediction)})
 
